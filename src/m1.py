@@ -173,7 +173,7 @@ def broken_1(circle, window):
       :type window: rg.RoseWindow
     """
     circle.attach_to(window)
-    circle2 = rg.Circle(circle.radius * 2)
+    circle2 = rg.Circle(circle.center, circle.radius * 2)
     circle2.attach_to(window)
     window.render()
 
@@ -197,7 +197,7 @@ def broken_2(x, y, window):
       :type y:      int
       :type window: rg.RoseWindow
       """
-    circle = rg.Circle((x, y), 33)
+    circle = ((rg.Point(x, y)), 33)
     circle.attach_to(window)
     window.render()
 
@@ -260,7 +260,7 @@ def broken_4(x, y, radius, window):
       :type radius: int
       :type window: rg.RoseWindow
       """
-    circle = rg.Circle(rg.Point(x, y), 'radius')
+    circle = rg.Circle(rg.Point(x, y), radius)
     circle.fill_color = 'green'
     circle.attach_to(window)
     window.render()
@@ -285,7 +285,7 @@ def broken_5(circle, window):
       :type window: rg.RoseWindow
     """
     circle.attach_to(window)
-    square = rg.Square(circle.center)
+    square = rg.Square(circle.center, 2 * circle.radius)
     square.outline_color = circle.fill_color
     square.attach_to(window)
     window.render()
